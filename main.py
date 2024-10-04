@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Set your PandasAI API key here
-PANDASAI_API_KEY = "YOUR_API_KEY"  # Replace with your actual API key
+PANDASAI_API_KEY = "$2a$10$SQ1S8NV/FInUgRGtY85gd.VapS5.W.LzJyfc4Feim/4IfcoMOR0GK"  # Replace with your actual API key
 
 # Set up the Streamlit page
 st.set_page_config(page_title="CSV Analyzer with PandasAI", page_icon="📊", layout="centered")
