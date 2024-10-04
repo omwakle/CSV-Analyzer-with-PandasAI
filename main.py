@@ -31,7 +31,7 @@ st.markdown("#### Enter your PandasAI API key:")
 st.markdown(
     "Don't have an API key? Get your free API key [here](https://pandabi.ai)"
 )
-api_key = st.text_input("Enter your PandasAI API key:", value=st.secrets.get("PANDASAI_API_KEY", ""), type="password")
+api_key = st.text_input("Enter your PandasAI API key:", type="password")
 
 if api_key:
     # File Uploader for CSV Input
