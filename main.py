@@ -4,6 +4,9 @@ from pandasai import Agent
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Set your PandasAI API key here
+PANDASAI_API_KEY = "YOUR_API_KEY"  # Replace with your actual API key
+
 # Set up the Streamlit page
 st.set_page_config(page_title="CSV Analyzer with PandasAI", page_icon="📊", layout="centered")
 
@@ -37,8 +40,8 @@ if uploaded_file is not None:
     with st.expander("Preview Uploaded Data"):
         st.dataframe(df.head())
 
-    # Initialize PandasAI Agent (No API key required)
-    agent = Agent(df)
+    # Initialize PandasAI Agent
+    agent = Agent(df, config={"api_key": PANDASAI_API_KEY})
 
     # User query input
     st.markdown("### Enter your query:")
@@ -58,7 +61,7 @@ if uploaded_file is not None:
                         st.markdown("### Visualization")
                         fig, ax = plt.subplots(figsize=(10, 6))
 
-                        # Assuming user asks for a bar plot
+                        # Assuming user asks for a bar plot (you can extend this based on needs)
                         if "histogram" in user_query or "bar" in user_query:
                             sns.barplot(x=df.iloc[:, 0], y=df.iloc[:, 1], ax=ax, palette="Set3")
                             ax.set_title(f"Bar Plot for {df.columns[0]} vs {df.columns[1]}")
@@ -69,8 +72,6 @@ if uploaded_file is not None:
 
                 except Exception as e:
                     st.error(f"An error occurred: {str(e)}")
-else:
-    st.info("Please upload a CSV file to begin.")
 
 # Footer Section
 st.markdown("---")
