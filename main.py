@@ -39,8 +39,8 @@ if api_key:
 
     if api_key:
     # File Uploader for CSV Input
-    st.markdown("### Upload a CSV file")
-    uploaded_file = st.file_uploader("Choose a CSV file to start analysis", type="csv")
+        st.markdown("### Upload a CSV file")
+        uploaded_file = st.file_uploader("Choose a CSV file to start analysis", type="csv")
 
     if uploaded_file is not None:
         # Read the CSV file
