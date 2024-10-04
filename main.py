@@ -27,7 +27,7 @@ st.markdown('<h1 class="main-title">CSV Analyzer with PandasAI</h1>', unsafe_all
 st.markdown('<p class="subheader">Upload your CSV and ask questions about your data using natural language. Generate visual insights instantly!</p>', unsafe_allow_html=True)
 
 # Predefined API key (replace with your actual key)
-api_key = "$2a$10$Pu3J46EGjy1x76wgFPlKY.9VOgxEUnXAJXSNcqRylMEFuZDCi.25u"
+api_key = "YOUR_API_KEY_HERE"
 
 # File Uploader for CSV Input
 st.markdown("### Upload a CSV file")
@@ -37,7 +37,7 @@ if uploaded_file is not None:
     try:
         # Read the CSV file
         df = pd.read_csv(uploaded_file)
-        
+
         if df.empty:
             st.error("The uploaded CSV file is empty. Please upload a valid file.")
         else:
@@ -46,7 +46,13 @@ if uploaded_file is not None:
                 st.dataframe(df.head())
 
             # Initialize PandasAI Agent
-            agent = Agent(df, config={"api_key": api_key})
+            try:
+                agent = Agent(df, config={"api_key": api_key})
+            except Exception as e:
+                st.error(f"Failed to initialize PandasAI Agent: {str(e)}")
+                st.error("Error traceback:")
+                st.code(traceback.format_exc())
+                st.stop()
 
             # User query input
             st.markdown("### Enter your query:")
@@ -78,7 +84,7 @@ if uploaded_file is not None:
                             st.error("Error traceback:")
                             st.code(traceback.format_exc())
     except Exception as e:
-        st.error(f"An error occurred during initialization: {str(e)}")
+        st.error(f"An error occurred while reading the CSV: {str(e)}")
         st.error("Error traceback:")
         st.code(traceback.format_exc())
 else:
