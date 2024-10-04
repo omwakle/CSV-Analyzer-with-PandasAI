@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from pandasai import SmartDataframe
-from pandasai.llm import OpenAI
+from pandasai import PandasAI
 
 # Set up the Streamlit page
 st.set_page_config(page_title="CSV Analyzer with PandasAI", page_icon="📊", layout="centered")
@@ -31,7 +30,7 @@ st.markdown("#### Enter your PandasAI API key:")
 st.markdown(
     "Don't have an API key? Get your free API key [here](https://pandabi.ai)"
 )
-api_key = st.text_input("Enter your PandasAI API key:", type="password")
+api_key = st.text_input("Enter your PandasAI API key:", value=st.secrets.get("PANDASAI_API_KEY", ""), type="password")
 
 if api_key:
     # File Uploader for CSV Input
@@ -48,8 +47,7 @@ if api_key:
 
         try:
             # Initialize PandasAI
-            llm = OpenAI(api_token=api_key)
-            smart_df = SmartDataframe(df, config={"llm": llm})
+            pandas_ai = PandasAI(api_token=api_key)
 
             # User query input
             st.markdown("### Enter your query:")
@@ -60,7 +58,7 @@ if api_key:
                     with st.spinner("Analyzing your data..."):
                         try:
                             # Get response from PandasAI
-                            response = smart_df.chat(user_query)
+                            response = pandas_ai.run(df, prompt=user_query)
                             st.markdown("### Analysis Result:")
                             st.success(response)
 
