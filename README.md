@@ -33,7 +33,7 @@ This is a simple web application built with Streamlit that allows users to uploa
 3. streamlit run app.py
 
 
-##Usage
+## Usage
 Get a PandasAI API key:
 Sign up at PandasAI to get your free API key.
 
@@ -54,7 +54,7 @@ Type natural language questions in the query input box. For example:
 View results and visualizations:
 The app will display the answer and any relevant visualizations based on your query.
 
-##Example Queries
+## Example Queries
 "Which are the top 5 countries by sales?"
 "Show a histogram of revenue."
 "Calculate the total revenue of European countries."
@@ -64,7 +64,8 @@ You can customize the app by editing the app.py file:
 
 Modify the query logic or add new types of visualizations.
 Adjust the layout and design using Streamlit features.
-##Screenshot
+
+## Screenshot
 ![image](https://github.com/user-attachments/assets/4240430f-23bb-4659-9eee-ec9b22e07bb0)
 
 
