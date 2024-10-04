@@ -3,4 +3,4 @@ pandas
 pandasai
 matplotlib
 seaborn
-yaml
+pyyaml
