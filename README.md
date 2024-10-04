@@ -8,10 +8,7 @@ This is a simple web application built with Streamlit that allows users to uploa
 - Ask natural language questions about the data (e.g., "What are the top 5 countries by sales?").
 - View and interact with visualizations, such as bar charts and histograms, generated from your data.
 - Supports customizable visual analysis based on user queries.
-  
-## Demo
 
-![Demo](demo_screenshot.png)
 
 ## Requirements
 
