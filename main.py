@@ -28,7 +28,7 @@ st.markdown('<p class="subheader">Upload your CSV and ask questions about your d
 # API Key Input
 st.markdown("#### Enter your PandasAI API key:")
 st.markdown(
-    "Don't have an API key? Get your free API key [here](https://pandabi.ai)"
+    "Don't have an API key? Get your free API key for free [here](https://pandabi.ai)"
 )
 api_key = st.text_input("Enter your PandasAI API key:", type="password")
 
