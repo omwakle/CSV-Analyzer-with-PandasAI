@@ -1,6 +1,5 @@
-Streamlit
-Pandas
-PandasAI
-Matplotlib
-Seaborn
-pyyaml
+streamlit
+pandas
+pandasai==2.0.3
+matplotlib
+seaborn
