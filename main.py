@@ -27,7 +27,7 @@ st.markdown('<h1 class="main-title">CSV Analyzer with PandasAI</h1>', unsafe_all
 st.markdown('<p class="subheader">Upload your CSV and ask questions about your data using natural language. Generate visual insights instantly!</p>', unsafe_allow_html=True)
 
 # Predefined API key (replace with your actual key)
-api_key = "YOUR_API_KEY_HERE"
+api_key = "$2a$10$Pu3J46EGjy1x76wgFPlKY.9VOgxEUnXAJXSNcqRylMEFuZDCi.25u"
 
 # File Uploader for CSV Input
 st.markdown("### Upload a CSV file")
