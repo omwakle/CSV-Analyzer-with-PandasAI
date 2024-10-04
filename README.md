@@ -2,6 +2,11 @@
 
 This is a simple web application built with Streamlit that allows users to upload a CSV file, ask questions about the data using natural language, and generate visual insights instantly. The app uses [PandasAI](https://pandabi.ai) for natural language analysis of data, enabling a conversational interface to interact with data.
 
+## Demo
+
+https://csv-analyzer-with-pandasai.streamlit.app/
+
+
 ## Features
 
 - Upload any CSV file for analysis.
