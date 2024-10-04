@@ -35,28 +35,18 @@ api_key = st.text_input("Enter your PandasAI API key:", type="password")
 if api_key:
     # File Uploader for CSV Input
     st.markdown("### Upload a CSV file")
-    uploaded_file = st.file_uploader("Choose a CSV file to start analysis", type="csv")
-
-    if api_key:
-    # File Uploader for CSV Input
-        st.markdown("### Upload a CSV file")
-        uploaded_file = st.file_uploader("Choose a CSV file to start analysis", type="csv")
+    uploaded_file = st.file_uploader("Choose a CSV file to start analysis", type="csv", key="unique_csv_uploader")
 
     if uploaded_file is not None:
         # Read the CSV file
         df = pd.read_csv(uploaded_file)
         
-        # Check if dataframe is loaded properly
-        st.write("CSV loaded successfully:")
-        st.write(df.head())  # Display the first few rows of the dataframe
-        
+        # Preview Data in Expander
+        with st.expander("Preview Uploaded Data"):
+            st.dataframe(df.head())
+
         # Initialize PandasAI Agent
         agent = Agent(df, config={"api_key": api_key})
-        st.write("Agent created successfully")  # Check if agent is created
-
-        if agent is None:
-            st.error("Agent initialization failed. Please check the API key or data format.")
-
 
         # User query input
         st.markdown("### Enter your query:")
@@ -89,6 +79,7 @@ if api_key:
                         st.error(f"An error occurred: {str(e)}")
 else:
     st.info("Please enter your API key to begin.")
+
 
 # Footer Section
 st.markdown("---")
